@@ -172,8 +172,9 @@ The jQAssistant Maven plugin must be configured in the pom.xml of the root modul
                         ${project.build.directory}/jqassistant/jqassistant-report.xml
                     </xmlReportFile>
                 </configuration>
+                -->
+                <!-- additional plugins -->
                 <dependencies>
-                    <!-- additional plugins -->
                     <dependency>
                         <groupId>org.jqassistant.contrib.plugin</groupId>
                         <artifactId>jqassistant-test-impact-analysis-plugin</artifactId>
