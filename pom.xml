@@ -51,7 +51,7 @@
         <org.apache.maven.version>3.5.0</org.apache.maven.version>
         <org.apache.maven_project_version>2.2.1</org.apache.maven_project_version>
         <org.apache.maven.reporting_version>2.0.5</org.apache.maven.reporting_version>
-        <hamcrest.version>2.0.0.0</hamcrest.version>
+        <hamcrest.version>2.2</hamcrest.version>
         <maven-invoker-plugin.version>3.0.0</maven-invoker-plugin.version>
 
         <!--
@@ -68,24 +68,6 @@
     </properties>
 
     <profiles>
-        <profile>
-            <id>neo4jv3</id>
-            <activation>
-                <jdk>[1.8,)</jdk>
-            </activation>
-                <dependencies>
-                    <dependency>
-                        <groupId>com.buschmais.jqassistant.neo4jserver</groupId>
-                        <artifactId>neo4jv3</artifactId>
-                    </dependency>
-                    <dependency>
-                        <groupId>org.neo4j</groupId>
-                        <artifactId>neo4j</artifactId>
-                        <version>${org.neo4j_3x.version}</version>
-                        <scope>compile</scope>
-                    </dependency>
-                </dependencies>
-        </profile>
         <profile>
             <id>IT</id>
             <properties>
@@ -173,24 +155,12 @@
                         <quiet>true</quiet>
                         <detectLinks>false</detectLinks>
                         <detectOfflineLinks>false</detectOfflineLinks>
-                        <additionalOptions>
-                            <additionalOption>-Xdoclint:none</additionalOption>
-                            <additionalOption>--base-dir ${project.basedir}</additionalOption>
-                        </additionalOptions>
-                        <source>1.7</source>
-                        <doclet>org.asciidoctor.Asciidoclet</doclet>
-                        <docletArtifact>
-                            <groupId>org.asciidoctor</groupId>
-                            <artifactId>asciidoclet</artifactId>
-                            <version>1.5.4</version>
-                        </docletArtifact>
-                        <!--<overview>src/main/java/overview.adoc</overview>-->
                     </configuration>
                 </plugin>
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-plugin-plugin</artifactId>
-                    <version>3.5.1</version>
+                    <version>3.6.0</version>
                     <configuration>
                         <skipErrorNoDescriptorsFound>true</skipErrorNoDescriptorsFound>
                     </configuration>
@@ -213,7 +183,7 @@
                 <plugin>
                     <groupId>org.codehaus.plexus</groupId>
                     <artifactId>plexus-component-metadata</artifactId>
-                    <version>1.5.5</version>
+                    <version>2.1.0</version>
                     <executions>
                         <execution>
                             <goals>
@@ -439,6 +409,17 @@
             <version>${jqa-core-framework.version}</version>
         </dependency>
 
+        <dependency>
+            <groupId>com.buschmais.jqassistant.neo4j</groupId>
+            <artifactId>embedded</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.neo4j</groupId>
+            <artifactId>neo4j</artifactId>
+            <version>${org.neo4j.version}</version>
+            <scope>compile</scope>
+        </dependency>
+
         <!--
          ! Dependencies to plugins of jQAssistant must be added here!
          !-->
@@ -622,7 +603,7 @@
         </dependency>
         <dependency>
             <groupId>org.hamcrest</groupId>
-            <artifactId>java-hamcrest</artifactId>
+            <artifactId>hamcrest</artifactId>
             <version>${hamcrest.version}</version>
         </dependency>
     </dependencies>

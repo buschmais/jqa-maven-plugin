@@ -24,7 +24,7 @@ import com.buschmais.jqassistant.core.rule.api.source.UrlRuleSource;
 import com.buschmais.jqassistant.core.rule.impl.reader.RuleParser;
 import com.buschmais.jqassistant.core.store.api.Store;
 import com.buschmais.jqassistant.core.store.api.StoreConfiguration;
-import com.buschmais.jqassistant.neo4j.backend.bootstrap.EmbeddedNeo4jConfiguration;
+import com.buschmais.jqassistant.neo4j.embedded.EmbeddedNeo4jConfiguration;
 import com.buschmais.jqassistant.scm.maven.provider.CachingStoreProvider;
 import com.buschmais.jqassistant.scm.maven.provider.PluginRepositoryProvider;
 
@@ -391,10 +391,10 @@ public abstract class AbstractMojo extends org.apache.maven.plugin.AbstractMojo 
     protected final void execute(StoreOperation storeOperation, MavenProject rootModule, Set<MavenProject> executedModules)
             throws MojoExecutionException, MojoFailureException {
         Store store = getStore(rootModule);
-        if (isResetStoreBeforeExecution() && executedModules.isEmpty()) {
-            store.reset();
-        }
         try {
+            if (isResetStoreBeforeExecution() && executedModules.isEmpty()) {
+                store.reset();
+            }
             storeOperation.run(rootModule, store);
         } finally {
             releaseStore(store);
