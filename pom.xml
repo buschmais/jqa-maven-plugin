@@ -61,6 +61,7 @@
          ! Oliver B. Fischer, 2016-10-30
          !-->
         <it.jqa.core.version>1.10.0-SNAPSHOT</it.jqa.core.version>
+
         <it.jqa.java-plugin.version>1.10.0-SNAPSHOT</it.jqa.java-plugin.version>
         <it.jqa.plugin-common.version>1.10.0-SNAPSHOT</it.jqa.plugin-common.version>
         <it.jqa-tycho-plugin.version>1.10.0-SNAPSHOT</it.jqa-tycho-plugin.version>
