@@ -16,7 +16,7 @@ import org.apache.maven.project.MavenProject;
 // TODO
 @Mojo(name = "list-plugins", threadSafe = true,
     configurator = "custom")
-public abstract class ListPluginsMojo extends AbstractProjectMojo {
+public class ListPluginsMojo extends AbstractProjectMojo {
 
     @Override
     protected boolean isResetStoreBeforeExecution() {
